@@ -68,6 +68,7 @@ pipeline {
   post {
     always {
       echo 'Exito maximo'
+      mail(to: 'mfabian@na-at.com.mx', subject: 'Se ejecutó el pipeline del ejercicio del curso de docker.', body: 'Cuerpo del correo')
     }
 
     failure {
