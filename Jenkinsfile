@@ -36,8 +36,11 @@ pipeline {
     }
 
     stage('test: funcional') {
+      when {
+        branch 'test'
+      }
       steps {
-        sh 'echo "paso test" '
+        sh 'echo "paso test en rama de test" '
       }
     }
 
@@ -68,12 +71,11 @@ pipeline {
   post {
     always {
       echo 'Exito maximo'
-      mail(to: 'mfabian@na-at.com.mx', subject: 'Se ejecuto el pipeline del ejercicio del curso de docker.', body: 'Cuerpo del correo')
     }
 
     failure {
       echo 'No se pudo correr el pipeline'
-      mail(to: 'mfabian@na-at.com.mx', subject: 'Error en el pipeline del ejercicio del curso de docker.', body: 'Cuerpo del correo')
+      mail(to: 'mfabian@na-at.com.mx', subject: 'Se ejecuto el pipeline del ejercicio del curso de docker.', body: 'Cuerpo del correo')
     }
 
     aborted {
