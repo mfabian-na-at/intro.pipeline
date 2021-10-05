@@ -70,5 +70,14 @@ pipeline {
       echo 'Exito maximo'
     }
 
+    failure {
+      echo 'No se pudo correr el pipeline'
+      mail(to: 'mfabian@na-at.com.mx', subject: 'Error en el pipeline del ejercicio del curso de docker.', body: 'Cuerpo del correo')
+    }
+
+    aborted {
+      echo 'Abortado'
+    }
+
   }
 }
