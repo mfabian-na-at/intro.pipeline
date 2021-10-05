@@ -32,7 +32,7 @@ pipeline {
     stage('test: integracion y calidad') {
       steps {
         sh 'echo "paso test: integracion y calidad"'
-        sh miscript.sh
+        sh pwd
       }
     }
 
